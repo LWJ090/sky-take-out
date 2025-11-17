@@ -10,6 +10,8 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface EmployeeMapper {
 
+    
+
     /**
      * 根据用户名查询员工
      * @param username
@@ -35,4 +37,6 @@ public interface EmployeeMapper {
     Page<Employee> pagequery(EmployeePageQueryDTO employeePageQueryDTO);
 
     void update(Employee employee);
+    @Select("select * from sky_take_out.employee where id = #{id}")
+    Employee getById(Long id);
 }
